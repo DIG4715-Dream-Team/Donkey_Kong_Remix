@@ -1,0 +1,1 @@
+All sprite dimensions are 64x64
