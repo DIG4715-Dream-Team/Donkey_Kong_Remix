@@ -21,6 +21,6 @@ public class GameManager : MonoBehaviour
 
     private void UpdateHealth()
     {
-        text1.text = $"Current Health:{player.GetComponent<PlayerController>().health}";
+        text1.text = $"Current Health:{player.GetComponent<PlayerController>().Health}";
     }
 }

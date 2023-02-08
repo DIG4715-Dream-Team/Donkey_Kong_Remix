@@ -1,6 +1,4 @@
 using TMPro;
-using Unity.PlasticSCM.Editor.WebApi;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -18,25 +16,28 @@ public class PlayerController : MonoBehaviour
     private bool canDoubleJump = false;
     private bool isDoubleJumping = false;
 
-    public int health { get; private set; }
-
-    [SerializeField]
-    public TextMeshProUGUI text1;
+    public int Health { get; private set; }
 
     private GameObject currentEnemy;
-    private bool InRange = false;
+    private GameObject currentBarrel;
+    [SerializeField]
+    private GameObject player;
+    private bool EnemyInRange = false;
     private bool isAttacking = false;
+    private bool BarrelInRange = false;
+    private bool BarrelIsGrabbed = false;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        health = 50;
+        Health = 50;
     }
 
     private void Update()
     {
         Jump();
         Attack();
+        BarrelControls();
     }
 
     void FixedUpdate()
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.CompareTag("Enemy"))
         {
             currentEnemy = other.gameObject;
         }
@@ -90,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.CompareTag("Enemy"))
         {
             currentEnemy = null;
         }
@@ -98,25 +99,73 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other != null)
+        if (other != null && other.gameObject.CompareTag("Enemy"))
         {
-            InRange = true;
+            EnemyInRange = true;
             currentEnemy = other.gameObject;
+        }
+        else if (other != null && other.gameObject.CompareTag("Barrel"))
+        {
+            BarrelInRange = true;
+            currentBarrel = other.gameObject;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other != null)
+        if (other != null && other.gameObject.CompareTag("Enemy"))
         {
-            InRange = false;
+            EnemyInRange = false;
             currentEnemy = null;
+        }
+        else if (other != null && other.gameObject.CompareTag("Barrel"))
+        {
+            BarrelInRange = false;
+            currentBarrel = null;
+        }
+    }
+
+    private void BarrelControls()
+    {
+        if (BarrelInRange == true && Input.GetKeyDown(KeyCode.F))
+        {
+            currentBarrel.transform.parent = player.transform;
+            currentBarrel.transform.position = rb2d.transform.position;
+            currentBarrel.transform.rotation = Quaternion.Euler(0,0,90);
+            currentBarrel.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            rb2d.mass = rb2d.mass + currentBarrel.GetComponent<Rigidbody2D>().mass;
+            BarrelIsGrabbed = true;
+            BarrelInRange = false;
+        }
+
+        if (BarrelIsGrabbed == true)
+        {
+            currentBarrel.transform.position = rb2d.transform.position;
+            currentBarrel.transform.Translate(2,0,0);
+        }
+
+        if (BarrelIsGrabbed == true && Input.GetKeyDown(KeyCode.R))
+        {
+            currentBarrel.transform.parent = null;
+            currentBarrel.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            currentBarrel.GetComponent<Rigidbody2D>().AddForce(new Vector2(10,5),ForceMode2D.Impulse);
+            rb2d.mass = rb2d.mass - currentBarrel.GetComponent<Rigidbody2D>().mass;
+            BarrelIsGrabbed = false;
+        }
+
+        if (BarrelIsGrabbed == true && Input.GetKeyDown(KeyCode.E))
+        {
+            currentBarrel.transform.parent = null;
+            currentBarrel.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            currentBarrel.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 5), ForceMode2D.Impulse);
+            rb2d.mass = rb2d.mass - currentBarrel.GetComponent<Rigidbody2D>().mass;
+            BarrelIsGrabbed = false;
         }
     }
 
     private void Attack()
     {
-        if (InRange == true && isAttacking == false && Input.GetKeyDown(KeyCode.F))
+        if (EnemyInRange == true && isAttacking == false && Input.GetKeyDown(KeyCode.Q))
         {
             currentEnemy.GetComponent<EnemyController>().TakeDamage(5);
             isAttacking = true;
@@ -129,7 +178,7 @@ public class PlayerController : MonoBehaviour
 
     public void Damage()
     {
-        health = health - 5;
+        Health = Health - 5;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
