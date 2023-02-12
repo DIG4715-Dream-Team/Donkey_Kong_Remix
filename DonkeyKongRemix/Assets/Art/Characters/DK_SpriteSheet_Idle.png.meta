@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -107,10 +107,10 @@ TextureImporter:
       name: DK_SpriteSheet_Idle_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 39
         y: 0
-        width: 64
-        height: 64
+        width: 50
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5af2f306b52ed74690944e1a73608e8
-      internalID: -997672416
+      spriteID: b895a921450e5284db9c0d92ae3c9af5
+      internalID: 1739985232
       vertices: []
       indices: 
       edges: []
@@ -128,10 +128,10 @@ TextureImporter:
       name: DK_SpriteSheet_Idle_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 167
         y: 0
-        width: 64
-        height: 64
+        width: 50
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12eab9b44865f454da257d759917e99b
-      internalID: 600399297
+      spriteID: 10183d1128db85f46945eda5ba7a4e1f
+      internalID: 605969402
       vertices: []
       indices: 
       edges: []
@@ -149,10 +149,10 @@ TextureImporter:
       name: DK_SpriteSheet_Idle_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 295
         y: 0
-        width: 64
-        height: 64
+        width: 50
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6292d1d3d38497448f59fa7e95840cc
-      internalID: 1626490230
+      spriteID: 50b4ce1ecdd909c4fbd4388634125ec1
+      internalID: 1446677453
       vertices: []
       indices: 
       edges: []
@@ -170,10 +170,10 @@ TextureImporter:
       name: DK_SpriteSheet_Idle_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 423
         y: 0
-        width: 64
-        height: 64
+        width: 51
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f87d326fb11ca74448b23a95202b3d15
-      internalID: 2077506126
+      spriteID: 042d8eaa97445e348b8596ff8666df5b
+      internalID: -247610927
       vertices: []
       indices: 
       edges: []
@@ -191,10 +191,10 @@ TextureImporter:
       name: DK_SpriteSheet_Idle_4
       rect:
         serializedVersion: 2
-        x: 256
+        x: 551
         y: 0
-        width: 64
-        height: 64
+        width: 51
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,8 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbaddf8ccd26b31468f20a605706d099
-      internalID: -522021064
+      spriteID: 2b4fb1002e726a3489e44747eda31dab
+      internalID: -1515201842
       vertices: []
       indices: 
       edges: []
@@ -212,10 +212,10 @@ TextureImporter:
       name: DK_SpriteSheet_Idle_5
       rect:
         serializedVersion: 2
-        x: 320
+        x: 679
         y: 0
-        width: 64
-        height: 64
+        width: 51
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35a08f7f719768548927bced087f23a5
-      internalID: 1665821144
+      spriteID: e7f3971348f1aa940917f6113d638fb5
+      internalID: -923143631
       vertices: []
       indices: 
       edges: []
@@ -233,10 +233,10 @@ TextureImporter:
       name: DK_SpriteSheet_Idle_6
       rect:
         serializedVersion: 2
-        x: 384
+        x: 807
         y: 0
-        width: 64
-        height: 64
+        width: 51
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,8 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ae9683ae9e52424ebe183f191c430af
-      internalID: -662254580
+      spriteID: eb935692c08e4524d82157cf9555b63e
+      internalID: -1361550918
       vertices: []
       indices: 
       edges: []
@@ -254,10 +254,10 @@ TextureImporter:
       name: DK_SpriteSheet_Idle_7
       rect:
         serializedVersion: 2
-        x: 448
+        x: 935
         y: 0
-        width: 64
-        height: 64
+        width: 50
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,8 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 563caaa9f7ae38f4e9b175653f5d5b93
-      internalID: -214476533
+      spriteID: 4907e1f0e21927f48a98d476829b3753
+      internalID: 2139070634
       vertices: []
       indices: 
       edges: []
@@ -275,10 +275,10 @@ TextureImporter:
       name: DK_SpriteSheet_Idle_8
       rect:
         serializedVersion: 2
-        x: 512
+        x: 1063
         y: 0
-        width: 64
-        height: 64
+        width: 50
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,8 +286,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45281169941696a4caed7e3f461a1a34
-      internalID: 16663589
+      spriteID: a4813471e85643f4da071d4831301b03
+      internalID: -2038164434
       vertices: []
       indices: 
       edges: []
@@ -296,10 +296,10 @@ TextureImporter:
       name: DK_SpriteSheet_Idle_9
       rect:
         serializedVersion: 2
-        x: 576
+        x: 1191
         y: 0
-        width: 64
-        height: 64
+        width: 50
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,8 +307,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c646b9fdf1b0b414c96ff3405d0e971e
-      internalID: -918815734
+      spriteID: d4d011d6be12b554b813b4eb7aa7c230
+      internalID: 457125882
       vertices: []
       indices: 
       edges: []
@@ -324,16 +324,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DK_SpriteSheet_Idle_0: -997672416
-      DK_SpriteSheet_Idle_9: -918815734
-      DK_SpriteSheet_Idle_7: -214476533
-      DK_SpriteSheet_Idle_5: 1665821144
-      DK_SpriteSheet_Idle_4: -522021064
-      DK_SpriteSheet_Idle_2: 1626490230
-      DK_SpriteSheet_Idle_8: 16663589
-      DK_SpriteSheet_Idle_1: 600399297
-      DK_SpriteSheet_Idle_6: -662254580
-      DK_SpriteSheet_Idle_3: 2077506126
+      DK_SpriteSheet_Idle_0: 1739985232
+      DK_SpriteSheet_Idle_9: 457125882
+      DK_SpriteSheet_Idle_7: 2139070634
+      DK_SpriteSheet_Idle_5: -923143631
+      DK_SpriteSheet_Idle_4: -1515201842
+      DK_SpriteSheet_Idle_2: 1446677453
+      DK_SpriteSheet_Idle_8: -2038164434
+      DK_SpriteSheet_Idle_1: 605969402
+      DK_SpriteSheet_Idle_6: -1361550918
+      DK_SpriteSheet_Idle_3: -247610927
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

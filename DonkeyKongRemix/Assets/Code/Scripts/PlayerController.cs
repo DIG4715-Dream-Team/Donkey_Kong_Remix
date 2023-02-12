@@ -1,4 +1,4 @@
-using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float secondJumpForce;
 
-    private bool canJump= true;
+    private bool canJump = true;
     private bool isJumping = false;
     private bool canDoubleJump = false;
     private bool isDoubleJumping = false;
@@ -27,6 +27,23 @@ public class PlayerController : MonoBehaviour
     private bool BarrelInRange = false;
     private bool BarrelIsGrabbed = false;
 
+    [SerializeField]
+    private SpriteRenderer renderer;
+    [SerializeField]
+    private AnimatorController idleController;
+    [SerializeField]
+    private AnimatorController runController;
+    [SerializeField]
+    private AnimatorController attackController;
+    [SerializeField]
+    private Animator controller;
+    [SerializeField]
+    private Sprite idle;
+    [SerializeField]
+    private Sprite run;
+    [SerializeField]
+    private Sprite attack;
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -38,6 +55,7 @@ public class PlayerController : MonoBehaviour
         Jump();
         Attack();
         BarrelControls();
+        AnimUpdate();
     }
 
     void FixedUpdate()
@@ -78,6 +96,29 @@ public class PlayerController : MonoBehaviour
         {
             canJump = false;
             canDoubleJump = false;
+        }
+    }
+
+    private void AnimUpdate()
+    {
+        if (rb2d.velocity.x <= 0.5 || rb2d.velocity.x >= -0.5)
+        {
+            renderer.sprite = idle;
+            controller.runtimeAnimatorController = idleController;
+        }
+
+        if (rb2d.velocity.x >= 0.5 || rb2d.velocity.x <= -0.5)
+        {
+            renderer.sprite = run;
+            controller.runtimeAnimatorController = runController;
+            Debug.Log("Running");
+        }
+
+        if (isAttacking == true)
+        {
+            renderer.sprite = attack;
+            controller.runtimeAnimatorController = attackController;
+            Debug.Log("Attacking");
         }
     }
 
@@ -165,12 +206,15 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-        if (EnemyInRange == true && isAttacking == false && Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            currentEnemy.GetComponent<EnemyController>().TakeDamage(5);
             isAttacking = true;
-        }
-        else if (isAttacking == true && Input.GetKeyUp(KeyCode.F))
+            if (EnemyInRange == true && isAttacking == true)
+            {
+                currentEnemy.GetComponent<EnemyController>().TakeDamage(5);
+            }
+         }
+        else if (isAttacking == true && Input.GetKeyUp(KeyCode.Q))
         {
             isAttacking = false;
         }
