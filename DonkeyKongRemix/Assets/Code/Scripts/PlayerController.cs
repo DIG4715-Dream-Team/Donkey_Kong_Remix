@@ -55,12 +55,22 @@ public class PlayerController : MonoBehaviour
         Jump();
         Attack();
         BarrelControls();
-        AnimUpdate();
     }
 
     void FixedUpdate()
     {
         Movement();
+        controller.SetFloat("hvelocity", rb2d.velocity.x);
+        controller.SetFloat("yvelocity", rb2d.velocity.y);
+        controller.SetBool("isAttacking", isAttacking);
+        if (rb2d.velocity.x == 0)
+        {
+            controller.SetBool("isIdle", true);
+        }
+        else if (rb2d.velocity.x != 0)
+        {
+            controller.SetBool("isIdle", false);
+        }
     }
 
     private void Movement()
@@ -80,6 +90,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             canDoubleJump = true;
             rb2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            controller.SetBool("isJumping", true);
         }
         else if (isJumping == true && Input.GetKeyUp(KeyCode.Space))
         {
@@ -96,29 +107,6 @@ public class PlayerController : MonoBehaviour
         {
             canJump = false;
             canDoubleJump = false;
-        }
-    }
-
-    private void AnimUpdate()
-    {
-        if (rb2d.velocity.x <= 0.5 || rb2d.velocity.x >= -0.5)
-        {
-            renderer.sprite = idle;
-            controller.runtimeAnimatorController = idleController;
-        }
-
-        if (rb2d.velocity.x >= 0.5 || rb2d.velocity.x <= -0.5)
-        {
-            renderer.sprite = run;
-            controller.runtimeAnimatorController = runController;
-            Debug.Log("Running");
-        }
-
-        if (isAttacking == true)
-        {
-            renderer.sprite = attack;
-            controller.runtimeAnimatorController = attackController;
-            Debug.Log("Attacking");
         }
     }
 
@@ -182,14 +170,14 @@ public class PlayerController : MonoBehaviour
         if (BarrelIsGrabbed == true)
         {
             currentBarrel.transform.position = rb2d.transform.position;
-            currentBarrel.transform.Translate(2,0,0);
+            currentBarrel.transform.Translate(1.75f,0,0);
         }
 
         if (BarrelIsGrabbed == true && Input.GetKeyDown(KeyCode.R))
         {
             currentBarrel.transform.parent = null;
             currentBarrel.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            currentBarrel.GetComponent<Rigidbody2D>().AddForce(new Vector2(10,5),ForceMode2D.Impulse);
+            currentBarrel.GetComponent<Rigidbody2D>().AddForce(new Vector2(15,2),ForceMode2D.Impulse);
             rb2d.mass = rb2d.mass - currentBarrel.GetComponent<Rigidbody2D>().mass;
             BarrelIsGrabbed = false;
         }
@@ -230,6 +218,8 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Ground") && canJump == false)
         {
             canJump = true;
+            controller.SetBool("isJumping", false);
+            controller.SetBool("isGrounded", canJump);
         }
     }
 }
