@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -170,7 +169,7 @@ public class PlayerController : MonoBehaviour
             currentEnemy.GetComponent<EnemyController>().TakeDamage(5);
             isAttacking = true;
         }
-        else if (isAttacking == true && Input.GetKeyUp(KeyCode.F))
+        else if (isAttacking == true && Input.GetKeyUp(KeyCode.Q))
         {
             isAttacking = false;
         }
