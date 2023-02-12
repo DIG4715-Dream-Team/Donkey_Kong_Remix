@@ -2194,6 +2194,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7337603005520588396, guid: 900b96f08ff4e4744a2e50bfc791ac1a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1307101571, guid: 4450470a7146e36408a3f9083199e64a, type: 3}
+    - target: {fileID: 7337603005520588396, guid: 900b96f08ff4e4744a2e50bfc791ac1a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337603005520588396, guid: 900b96f08ff4e4744a2e50bfc791ac1a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337603005520588396, guid: 900b96f08ff4e4744a2e50bfc791ac1a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7337603005520588397, guid: 900b96f08ff4e4744a2e50bfc791ac1a, type: 3}
       propertyPath: speed
       value: 3
