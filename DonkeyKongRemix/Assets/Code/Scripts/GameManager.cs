@@ -1,14 +1,15 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    public TextMeshProUGUI text1;
+    private TextMeshProUGUI health;
+    [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private TextMeshProUGUI score;
 
     private string currentScene;
     private Scene activeScene;
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
     {
         activeScene = SceneManager.GetActiveScene();
         currentScene = activeScene.name;
-        UpdateHealth();
+        updateText();
 
         if (currentScene != "DKCR_MainMenu" &&  Input.GetKeyDown(KeyCode.P))
         {
@@ -45,8 +46,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void UpdateHealth()
+    private void updateText()
     {
-        text1.text = $"Current Health:{player.GetComponent<PlayerController>().Health}";
+        health.text = $"Current Health:{player.GetComponent<PlayerController>().Health}";
+        score.text = $"Score: {player.GetComponent<PlayerController>().Score}";
     }
 }

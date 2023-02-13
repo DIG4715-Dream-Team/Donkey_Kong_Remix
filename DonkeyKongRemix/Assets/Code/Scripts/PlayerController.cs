@@ -1,5 +1,6 @@
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool isDoubleJumping = false;
 
     public int Health { get; private set; }
+    public int Score { get; private set; }
 
     private GameObject currentEnemy;
     private GameObject currentBarrel;
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         Health = 50;
+        Score = 0;
     }
 
     private void Update()
@@ -213,7 +216,12 @@ public class PlayerController : MonoBehaviour
         Health = Health - 5;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    public void ScoreChange(int amount)
+    {
+        Score = Score + amount;
+    }
+
+        private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground") && canJump == false)
         {
