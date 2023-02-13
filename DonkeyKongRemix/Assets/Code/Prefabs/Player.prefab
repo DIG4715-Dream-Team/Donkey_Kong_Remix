@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 8
-  secondJumpForce: 4
+  jumpForce: 10
+  secondJumpForce: 5
   player: {fileID: 8132263238189032023}
   renderer: {fileID: 8132263238189032009}
   idleController: {fileID: 9100000, guid: 69e73703f7499e44caf356e35d515189, type: 2}
