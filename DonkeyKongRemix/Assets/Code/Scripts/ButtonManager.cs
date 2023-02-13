@@ -28,6 +28,12 @@ public class ButtonManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("DKCR_MainMenu");
+        Time.timeScale = 1;
+    }
+
     public void QuitGame()
     {
         Application.Quit();
