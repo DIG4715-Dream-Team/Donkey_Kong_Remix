@@ -1,6 +1,4 @@
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,21 +28,7 @@ public class PlayerController : MonoBehaviour
     private bool BarrelIsGrabbed = false;
 
     [SerializeField]
-    private SpriteRenderer renderer;
-    [SerializeField]
-    private AnimatorController idleController;
-    [SerializeField]
-    private AnimatorController runController;
-    [SerializeField]
-    private AnimatorController attackController;
-    [SerializeField]
     private Animator controller;
-    [SerializeField]
-    private Sprite idle;
-    [SerializeField]
-    private Sprite run;
-    [SerializeField]
-    private Sprite attack;
 
     void Start()
     {
