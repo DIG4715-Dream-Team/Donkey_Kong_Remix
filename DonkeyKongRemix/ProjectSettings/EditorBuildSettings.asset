@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/DKCR_Lvl1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/DKCR_MainMenu.unity
+    guid: d1465cd2e2152934e9b258e7ea99a94a
+  - enabled: 1
+    path: Assets/Scenes/Jungle Level.unity
+    guid: ee169ab3b46c2fa4bbe89769d29c6326
+  - enabled: 1
+    path: Assets/Scenes/Lab Level.unity
+    guid: e4d813ec4423f584985fed2dd7d12b59
   m_configObjects: {}
