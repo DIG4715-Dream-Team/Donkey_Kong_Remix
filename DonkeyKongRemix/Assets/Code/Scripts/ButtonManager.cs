@@ -25,6 +25,7 @@ public class ButtonManager : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(currentScene);
+        Time.timeScale = 1;
     }
 
     public void QuitGame()
