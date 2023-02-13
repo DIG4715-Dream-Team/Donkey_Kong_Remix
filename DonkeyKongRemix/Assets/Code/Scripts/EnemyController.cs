@@ -43,6 +43,14 @@ public class EnemyController : MonoBehaviour
         Vector2 position = rb2d.position;
         position.x = position.x + Time.deltaTime * speed * direction;;
         rb2d.MovePosition(position);
+        if(direction == 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (direction == 1)
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
